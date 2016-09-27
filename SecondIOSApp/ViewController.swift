@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController
 {
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet private weak var background: UIView!
     
-    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet private weak var textLabel: UILabel!
+    
+    @IBOutlet private weak var firstButton: UIButton!
 
     override func viewDidLoad()
     {
@@ -31,6 +33,20 @@ class ViewController: UIViewController
     {
         textLabel.text = "you clicked me"
         textLabel.textColor = UIColor.cyanColor()
+        background.backgroundColor = UIColor.redColor()
+    }
+    
+    private func makeRandomColor() ->UIColor
+    {
+        //make 3 values between 0-255 and create a color from them
+        let randomColor : UIColor
+        let red : CGFloat = CGFloat(drand48())
+        let green :CGFloat = CGFloat(drand48())
+        let blue :CGFloat = CGFloat(drand48())
+
+        
+        randomColor = UIColor(red: red, green: green, blue: blue, alpha:1.0)
+        return randomColor
     }
 }
 
